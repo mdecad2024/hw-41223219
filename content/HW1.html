@@ -142,18 +142,17 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">Attendance << <a href='Attendance.html'>Previous</a> <a href='HW1_Exam.html'>Next</a> >> HW1_Exam<br /><h1>HW1</h1>
-<p>2b</p>
 <p>Homework 1 (10%):</p>
 <p style="padding-left: 30px;">利用 Solvespace 與 NX2312 建立 <a href="https://mde.tw/cad2024/content/Parts.html">Parts</a> 頁面中的零件</p>
 <p style="padding-left: 30px;">其他<a href="http://229.cycu.org/part_modeling_projects.pdf">零件模擬練習</a></p>
 <hr/>
 <p>利用 Solvespace 繪製列表中零件的操作過程與說明影片如下:</p>
-<p><img caption="false" height="100" src="./../images/螢幕擷取畫面 2024-09-20 145225.png" width="333"/></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Run static server
-import static
+<p><img caption="false" height="100" src="./../images/螢幕擷取畫面 2024-09-22 201625.png" width="732"/></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from cmsimde import flaskapp
 from gevent.pywsgi import WSGIServer
 
-http_server = WSGIServer(('0.0.0.0', 8081), static.app)
+#flaskapp.app.run(host="0.0.0.0", debug=True)
+http_server = WSGIServer(('0.0.0.0', 8080), flaskapp.app)
 http_server.serve_forever()</pre>
 <p style="padding-left: 30px;">影片標題: 國立虎尾科技大學機械設計工程系電腦輔助設計與實習- 作業一之一</p>
 <p style="padding-left: 30px;">所完成的零件檔案下載</p>
@@ -169,7 +168,8 @@ http_server.serve_forever()</pre>
 <p>HW1 執行心得:</p>
 <p style="padding-left: 30px;">......</p>
 <p>HW1 自評分數:</p>
-<p style="padding-left: 30px;">完成上述流程後, 請將 HW1 自評分數輸入 cad2024 自評表單中.</p><br />Attendance << <a href='Attendance.html'>Previous</a> <a href='HW1_Exam.html'>Next</a> >> HW1_Exam</div>
+<p style="padding-left: 30px;">完成上述流程後, 請將 HW1 自評分數輸入 cad2024 自評表單中.</p>
+<br />Attendance << <a href='Attendance.html'>Previous</a> <a href='HW1_Exam.html'>Next</a> >> HW1_Exam</div>
         
     <!-- footer -->
       <div class="container">
