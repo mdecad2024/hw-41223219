@@ -422,6 +422,101 @@ Exit
 <p></p>
 <p></p>
 <h2>STL VIEWER </h2>
+<script src="/static/jsc3d.js" type="text/javascript"></script>
+<div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv3" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv4" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv5" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv6" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv7" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv8" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv9" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv10" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv11" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv12" style="border: 1px solid;" width="400"></canvas> <!-- 可以添加更多的 canvas --></div>
+<div style="width: 400px; height: 70px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/> Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
+<option>Flat</option>
+<option>Point</option>
+<option>Wireframe</option>
+<option>Smooth</option>
+</select>Definition:<select id="defini" onchange="changeOption('Definition',this.value)">
+<option>Standard</option>
+<option>low</option>
+<option>high</option>
+</select></div>
+<script type="text/javascript">
+var viewers = [];
+
+function getOptions(){
+    var mc = document.getElementById("mdlClr").value;
+    var bc1 = document.getElementById("bckClr1").value;
+    var bc2 = document.getElementById("bckClr2").value;
+    var ren = document.getElementById("render").value;
+    var def = document.getElementById("defini").value;
+    return {ModelColor: mc, BackgroundColor1: bc1, BackgroundColor2: bc2, RenderMode: ren, Definition: def};
+}
+
+function readSTLfile(opt, canvasId){
+    var canvas = document.getElementById(canvasId);
+    var viewer = new JSC3D.Viewer(canvas);
+    viewer.setParameter('SceneUrl', opt.SceneUrl);
+    viewer.setParameter('InitRotationX', 0);
+    viewer.setParameter('InitRotationY', 0);
+    viewer.setParameter('InitRotationZ', 0);
+    viewer.setParameter('ModelColor', opt.ModelColor);
+    viewer.setParameter('BackgroundColor1', opt.BackgroundColor1);
+    viewer.setParameter('BackgroundColor2', opt.BackgroundColor2);
+    viewer.setParameter('RenderMode', opt.RenderMode);
+    viewer.setParameter('Definition', opt.Definition);
+    viewer.init();
+    viewer.update();
+    viewers.push(viewer); // 保存 viewer 實例
+}
+
+function changeOption(strOpt,strValue){
+    console.log("change " + strOpt + " to " + strValue);
+    viewers.forEach(viewer => {
+        viewer.setParameter(strOpt, strValue);
+        viewer.init();
+        viewer.update();
+    });
+}
+
+function openByUrl(){
+    var url = document.getElementById("url").value;
+    var opt = getOptions();
+    opt.SceneUrl = url;
+    // 可以添加更多的 STL URL
+    readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
+    readSTLfile(opt, 'cv2'); // 第二個 canvas
+    readSTLfile(opt, 'cv3'); // 第三個 canvas
+    readSTLfile(opt, 'cv4'); // 第四個 canvas
+    readSTLfile(opt, 'cv5'); // 第五個 canvas
+    readSTLfile(opt, 'cv6'); // 第六個 canvas
+    readSTLfile(opt, 'cv7'); // 第七個 canvas
+    readSTLfile(opt, 'cv8'); // 第八個 canvas
+    readSTLfile(opt, 'cv9'); // 第九個 canvas
+    readSTLfile(opt, 'cv10'); // 第十個 canvas
+    readSTLfile(opt, 'cv11'); // 第十一個 canvas
+    readSTLfile(opt, 'cv12'); // 第十二個 canvas
+    
+}
+
+function openByGet(){
+    var urls = [
+        "https://s104.cycu.org/~41223219/零件7.stl", 
+"https://s104.cycu.org/~41223219/Base%20plate.stl", 
+"https://s104.cycu.org/~41223219/Bearing%20block%20A.stl", 
+"https://s104.cycu.org/~41223219/w7.stl", 
+"https://s104.cycu.org/~41223219/W8.stl", 
+"https://s104.cycu.org/~41223219/Dovetail%20bracket.stl", 
+"https://s104.cycu.org/~41223219/Gland.stl", 
+"https://s104.cycu.org/~41223219/Head%20attachment.stl", 
+"https://s104.cycu.org/~41223219/Head%20yoke.stl", 
+"https://s104.cycu.org/~41223219/Dovetail%20stop.stl", 
+"https://s104.cycu.org/~41223219/Guide%20plate.stl", 
+"https://s104.cycu.org/~41223219/Rod%20support.stl", 
+        
+    ];
+    var opt = getOptions();
+    urls.forEach((url, index) => {
+        opt.SceneUrl = url;
+        readSTLfile(opt, 'cv' + (index + 1)); // 動態生成 canvas ID
+    });
+}
+
+openByGet();
+</script>
 <p></p>
 <p></p>
 <p></p>
