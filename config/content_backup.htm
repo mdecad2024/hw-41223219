@@ -714,15 +714,16 @@ openByGet();
 <p style="padding-left: 30px;">請將操作影片嵌入 ......</p>
 <p style="padding-left: 30px;">所完成的零件與組立件檔案下載</p>
 <h3>w16_exam1</h3>
-<p><span>圖檔：</span><span><a href="/downloads/41223219_w16_exam1.7z">41223219_w16_exam1.7z</a></span></p>
-<p><span>影片：<a href="https://youtu.be/TQE1pb4zffA">https://youtu.be/TQE1pb4zffA</a></span></p>
-<p><span><a href="https://mdecad2024.github.io/hw-41223219/cmsimde/static/viewstl.html?src=https://s104.cycu.org/~41223219/Platine%20renvoie%20bille_sldprt.stl"></a></span></p>
+<p><span>圖檔：<a href="/downloads/41223219_w16_exam1.7z">/downloads/41223219_w16_exam1.7z</a></span></p>
+<p><span><a href="/downloads/41223219_w16_exam1.7z"></a></span><span>影片：<a href="https://youtu.be/TQE1pb4zffA">https://youtu.be/TQE1pb4zffA</a></span></p>
+<p>組合影片：<a href="https://youtu.be/l7in2yNE81M">https://youtu.be/l7in2yNE81M</a></p>
 <p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/TQE1pb4zffA" width="560"></iframe></span></p>
+<p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/l7in2yNE81M" width="560"></iframe></span></p>
 <p><span>STL VIEWER ：</span></p>
 <p>
 <script src="/static/jsc3d.js" type="text/javascript"></script>
 </p>
-<div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv3" style="border: 1px solid;" width="400"></canvas></div>
+<div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv3" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv4" style="border: 1px solid;" width="400"></canvas></div>
 <div style="width: 400px; height: 70px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/> Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
 <option>Flat</option>
 <option>Point</option>
@@ -780,6 +781,7 @@ function openByUrl(){
     readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
     readSTLfile(opt, 'cv2'); // 第二個 canvas
     readSTLfile(opt, 'cv3'); // 第三個 canvas
+    readSTLfile(opt, 'cv4'); // 第四個 canvas
 
 
 }
@@ -789,6 +791,7 @@ function openByGet(){
         "https://s104.cycu.org/~41223219/Platine%20renvoie%20bille_sldprt.stl", 
 "https://s104.cycu.org/~41223219/Plongeur%20Renvoi%20bille_sldprt.stl", 
 "https://s104.cycu.org/~41223219/solenoid.stl", 
+"https://s104.cycu.org/~41223219/W16_exam1-ed.stl", 
     ];
     var opt = getOptions();
     urls.forEach((url, index) => {
@@ -828,7 +831,7 @@ openByGet();
 <p><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/sWgHFk9u1QI" width="560"></iframe></span></p>
 <p><span>STL VIEWER ：</span></p>
 <script src="/static/jsc3d.js" type="text/javascript"></script>
-<div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv3" style="border: 1px solid;" width="400"></canvas> <!-- 可以添加更多的 canvas --></div>
+<div id="models"><canvas height="300" id="cv1" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv2" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv3" style="border: 1px solid;" width="400"></canvas> <canvas height="300" id="cv4" style="border: 1px solid;" width="400"></canvas> <!-- 可以添加更多的 canvas --></div>
 <div style="width: 400px; height: 70px; border: 1px solid;">Model Color:<input id="mdlClr" onchange="changeOption('ModelColor',this.value)" style="margin-right: 50px;" type="color" value="#00ff40"/> Back Color1:<input id="bckClr1" onchange="changeOption('BackgroundColor1',this.value)" style="margin-right: 50px;" type="color"/> Back Color2:<input id="bckClr2" onchange="changeOption('BackgroundColor2',this.value)" type="color"/><br/> Render Mode:<select id="render" onchange="changeOption('RenderMode',this.value)">
 <option>Flat</option>
 <option>Point</option>
@@ -885,6 +888,7 @@ function openByUrl(){
     readSTLfile(opt, 'cv1'); // 為每個 canvas 調用
     readSTLfile(opt, 'cv2'); // 第二個 canvas
     readSTLfile(opt, 'cv3'); // 第三個 canvas
+    readSTLfile(opt, 'cv4'); // 第四個 canvas
 
 }
 
@@ -893,6 +897,7 @@ function openByGet(){
         "https://s104.cycu.org/~41223219/solenoid--by NX.stl", 
          "https://s104.cycu.org/~41223219/Platine renvoie bille_sldprt--by NX.stl",
  "https://s104.cycu.org/~41223219/Plongeur Renvoi bille_sldprt--by NX.stl",
+"https://s104.cycu.org/~41223219/W16_exam1-ed.stl", 
 
     ];
     var opt = getOptions();
